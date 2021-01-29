@@ -54,7 +54,28 @@
   
   // Part 2
   // Add new DOM event listeners and handlers to log the mouse state of each button.
-  
+
+  function onStartClick() {
+    startStopLight();
+    }
+    var startButton= document.getElementById('start-button');
+    startButton.addEventListener('click', onStartClick);
+    function onStopClick(){
+        window.clearInterval(StopLightTimer);
+    }
+    var stopButton = document.getElementById('stop-button');
+    stopButton.addEventListener('click', onStopClick); 
+    function onSpeedClick(){
+        movePixels += 5;
+        var speed = movePixels * (1000/50);
+        document.getElementById('info').innerHTML = 'Stoplight:' + speed;
+    }
+    var speedButton = document.getElementById('speed-button');
+    speedButton.addEventListener('click', onSpeedClick);
+    
+
+
+
   // When a user's mouse enters a button, log "Entered <textContent> button" to the console.
   // When a user's mouse leaves a button, log "Left <textContent> button" to the console.
   // TIP: Each event type will need a separate event listener.
